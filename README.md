@@ -1,0 +1,2 @@
+# cordova-scanner
+cordova-scanner
