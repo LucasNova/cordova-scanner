@@ -1549,7 +1549,10 @@ public class BarcodeScannerPlugin extends CordovaPlugin implements SurfaceHolder
 
                                         setAutoRect();
                                         scrollView.scrollTo(0, (int) (heightTmpRunnable / 2 - height / 2));
-                                        ((ViewGroup)webView.getView()).bringToFront();
+                                        /**CUSTOMIZATION PLUGIN HERER START*/
+                                            ((ViewGroup)webView.getView()).setBackgroundColor(0);
+                                            ((ViewGroup)webView.getView()).bringToFront();
+                                        /**CUSTOMIZATION END*/
                                         if (ScannerActivity.param_OverlayMode == 1) {
                                             MWOverlay.addOverlay(cordova.getActivity(), surfaceView);
                                             MWOverlay.setPaused(false);
