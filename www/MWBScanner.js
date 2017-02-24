@@ -545,7 +545,14 @@
 MWBtoggleFlash: function() {
     cordova.exec(function(){}, function(){}, "MWBarcodeScanner", "toggleFlash", []);
 },
- 
+
+//here
+ MWBscannerPrepare: function() {
+     cordova.exec(function(){}, function(){}, "MWBarcodeScanner", "scannerPrepare", []);
+ },
+
+//edit
+
  /**
     * Enable or disable zoom button on scanning screen. If device doesn't support zoom,
     * button will be hidden regardles of param. Zoom is not supported on Windows Phone 8
@@ -783,6 +790,11 @@ scanner.togglePauseResume= function(){
 scanner.toggleFlash = function(){
     BarcodeScanner.MWBtoggleFlash();
 }
+// here
+scanner.scannerPrepare = function(){
+    BarcodeScanner.MWBscannerPrepare();
+}
+//end
 scanner.toggleZoom = function(){
     BarcodeScanner.MWBtoggleZoom();
 }
