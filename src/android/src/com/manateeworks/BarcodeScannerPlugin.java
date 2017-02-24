@@ -639,6 +639,23 @@ public class BarcodeScannerPlugin extends CordovaPlugin implements SurfaceHolder
 
             return true;
 
+        }else if ("scannerPrepare".equals(action)) {
+            new Timer().schedule(new TimerTask() {
+
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            /**CUSTOMIZATION PLUGIN HERER START*/
+                            ((ViewGroup)webView.getView()).setBackgroundColor(0);
+                            /**CUSTOMIZATION END*/
+                        }
+                    });
+                }
+            }, 1000);
+            return true;
+
         }
         return false;
     }
@@ -1549,10 +1566,9 @@ public class BarcodeScannerPlugin extends CordovaPlugin implements SurfaceHolder
 
                                         setAutoRect();
                                         scrollView.scrollTo(0, (int) (heightTmpRunnable / 2 - height / 2));
-                                        /**CUSTOMIZATION PLUGIN HERER START*/
-                                            ((ViewGroup)webView.getView()).setBackgroundColor(0);
-                                            ((ViewGroup)webView.getView()).bringToFront();
-                                        /**CUSTOMIZATION END*/
+                                        // here
+                                        ((ViewGroup)webView.getView()).bringToFront();
+                                        // end
                                         if (ScannerActivity.param_OverlayMode == 1) {
                                             MWOverlay.addOverlay(cordova.getActivity(), surfaceView);
                                             MWOverlay.setPaused(false);
